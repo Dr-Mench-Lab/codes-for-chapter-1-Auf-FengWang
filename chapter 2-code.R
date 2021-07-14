@@ -100,7 +100,7 @@ if ((t.summary$alternative == "less" )
 x.pval.l <- seq(lim.lower,-abs(t.summary$statistic),length=200)
 y.pval.l <-dt(x.pval.l, df = t.summary$parameter)
 polygon(c(lim.lower,x.pval.l, -abs(t.summary$statistic))
-, c(0,y.pval.u,0), col="gray" )
+, c(0,y.pval.l,0), col="gray" )
 }
 if ((t.summary$alternative == "greater")
 |(t.summary$alternative == "two.sided")) {

@@ -21,7 +21,7 @@ demo.clt.exp <- function(N, n) {
   sam.mean <- colMeans(sam)
   sam.se <- sd(sam.mean)
   true.se <- sqrt(1/n)
-  hist(sam.mean,freq = FALSE,breaks = 25, main = paste( "True SEM =", round(true.se,4),"£¬Est SEM = ", round( sam.se,4)), xlab = paste( "n =", n))
+  hist(sam.mean,freq = FALSE,breaks = 25, main = paste( "True SEM =", round(true.se,4),"Â£Â¬Est SEM = ", round( sam.se,4)), xlab = paste( "n =", n))
   points(density(sam.mean), type = "l")
   x<- seq(0,5,length = 1000)
   points(x,dnorm(x,mean = 1,sd = true.se),type = "l", lwd = 2,col = "red")
@@ -36,7 +36,7 @@ demo.clt.exp(10000, 100);
 
 x<- seq(-8,8, length = 1000)
 par(mfrow=c(1,1))
-plot(x, dnorm(x), type = "l",lwd = 2, col = "red", main = "Normal (red) vs t-dist with df=1£¬2£¬6£¬12£¬30£¬100")
+plot(x, dnorm(x), type = "l",lwd = 2, col = "red", main = "Normal (red) vs t-dist with df=1Â£Â¬2Â£Â¬6Â£Â¬12Â£Â¬30Â£Â¬100")
 points(x, dt(x,1), type = "l")
 points(x, dt (x,2), type = "l")
 points(x, dt(x,6), type = "l")
@@ -94,9 +94,9 @@ y.curve <-dt(x.curve,df = t.summary$parameter)
 plot(x.curve, y.curve, type = "n"
      , ylab =paste("t-dist( df=", signif(t.summary$parameter, 3), ")")
      , xlab =paste("t-stat=", signif(t.summary$statistic, 5)
-    , " £¬Shaded area is p-value =", signif(t.summary$p.value, 5)))
+    , " Â£Â¬Shaded area is p-value =", signif(t.summary$p.value, 5)))
 if ((t.summary$alternative == "less" )
-| (t.summary$alternative == "two.sided ")) {
+| (t.summary$alternative == "two.sided")) {
 x.pval.l <- seq(lim.lower,-abs(t.summary$statistic),length=200)
 y.pval.l <-dt(x.pval.l, df = t.summary$parameter)
 polygon(c(lim.lower,x.pval.l, -abs(t.summary$statistic))
